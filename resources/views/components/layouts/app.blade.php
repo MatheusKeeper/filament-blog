@@ -9,6 +9,10 @@
 
         <title>{{ config('app.name') }}</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
         <style>
             [x-cloak] {
                 display: none !important;
@@ -19,8 +23,16 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body class="antialiased">
-        {{ $slot }}
+    <body class="antialiased bg-gray-100 text-stone-800">
+        <header class="max-w-5xl mx-auto py-6">
+            <a href="/" wire:navigate class="block text-4xl text-center">
+                {{ config('app.name') }}
+            </a>
+        </header>
+
+        <main class="max-w-5xl mx-auto py-4">
+            {{ $slot }}
+        </main>
 
         @filamentScripts
         @vite('resources/js/app.js')
